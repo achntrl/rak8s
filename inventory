@@ -1,6 +1,6 @@
-rak8s000    ansible_host=192.168.86.203
-rak8s001    ansible_host=192.168.86.204
-rak8s002    ansible_host=192.168.86.205
+k8s-slave-1    ansible_host=192.168.0.101
+k8s-slave-2    ansible_host=192.168.0.102
+k8s-slave-3    ansible_host=192.168.0.103
 
 [master]
-rak8s000
+k8s-master   ansible_host=192.168.0.100
