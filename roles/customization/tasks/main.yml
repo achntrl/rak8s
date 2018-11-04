@@ -1,0 +1,13 @@
+- name: apt-get update
+  apt:
+    update_cache: yes
+    autoclean: yes
+    autoremove: yes
+
+- name: Install useful packages
+  apt:
+    name:
+      - sysstat
+      - iotop
+    state: present
+    force: yes
