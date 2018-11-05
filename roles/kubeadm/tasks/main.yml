@@ -57,3 +57,10 @@
     - kubelet
     - kubeadm
     - kubectl
+
+- name: Lower the Pod Eviction threshold to 50Mi
+  lineinfile:
+    dest: /var/lib/kubelet/config.yaml
+    regexp: '^  memory.available'
+    line: "  memory.available: 50Mi"
+    state: present
