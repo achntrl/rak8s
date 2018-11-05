@@ -1,5 +1,14 @@
 ---
 # tasks file for master
+- name: disable zram (swap on Armbian)
+  systemd:
+    name: armbian-zram-config
+    enabled: no
+    state: stopped
+
+- name: disable swap
+  shell: swapoff -a
+
 - name: Reset Kubernetes Master
   shell: kubeadm reset -f
   become: true

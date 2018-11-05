@@ -1,10 +1,6 @@
 ---
 # tasks file for kubeadm
 
-# https://gist.github.com/alexellis/fdbc90de7691a1b9edb545c17da2d975
-- name: Disable Swap
-  shell: dphys-swapfile swapoff && dphys-swapfile uninstall && update-rc.d dphys-swapfile remove
-
 # Docker Convenience Script Can Only Be Run Once
 - name: Determine if docker is installed
   stat:
@@ -58,9 +54,10 @@
     - kubeadm
     - kubectl
 
-- name: Lower the Pod Eviction threshold to 50Mi
-  lineinfile:
-    dest: /var/lib/kubelet/config.yaml
-    regexp: '^  memory.available'
-    line: "  memory.available: 50Mi"
-    state: present
+# No need anymore
+# - name: Lower the Pod Eviction threshold to 50Mi
+#   lineinfile:
+#     dest: /var/lib/kubelet/config.yaml
+#     regexp: '^  memory.available'
+#     line: "  memory.available: 50Mi"
+#     state: present

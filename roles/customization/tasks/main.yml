@@ -9,5 +9,6 @@
     name:
       - sysstat
       - iotop
+      - vim
     state: present
     force: yes
